@@ -1,5 +1,4 @@
 #include <bits/stdc++.h> 
-using namespace std;
 /**********************************************************
 
     Following is the Binary Tree Node class structure:
@@ -23,17 +22,18 @@ using namespace std;
 
 bool identicalTrees(BinaryTreeNode<int>* root1, BinaryTreeNode<int>* root2) {
     // Write your code here. 
+
     if(!root1 && !root2)
-        return true;	
+        return true;
     if(!root1 || !root2)
         return false;
-
-    if(root1->data != root2->data)
+    if(root1->data!=root2->data)
         return false;
-    
-    
-    bool left=identicalTrees(root1->left,root2->left);
-    bool right=identicalTrees(root1->right,root2->right);
 
-    return left&&right;
+    bool left=identicalTrees(root1->left,root2->left);
+        bool right=identicalTrees(root1->right,root2->right);
+
+    return left && right;
+
+
 }

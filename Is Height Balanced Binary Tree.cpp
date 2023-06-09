@@ -1,5 +1,4 @@
 #include <bits/stdc++.h> 
-using namespace std;
 /*************************************************************
  
     Following is the Binary Tree node structure
@@ -19,21 +18,26 @@ using namespace std;
     };
 
 *************************************************************/
-int height(BinaryTreeNode<int> *root) {
+int height(BinaryTreeNode<int>* root){
 
-    if(root==NULL)
+    if(!root)
         return 0;
+    
     return 1+max(height(root->left),height(root->right));
 }
 bool isBalancedBT(BinaryTreeNode<int>* root) {
     // Write your code here.
 
-    if(root==NULL || (!root->left && !root->right))
-            return true;
-    if(abs(height(root->left)-height(root->right))<=1)
-        return isBalancedBT(root->left) && isBalancedBT(root->right);
-   
-    return false;
-
+    if(!root)
+        return true;
     
+    if(abs(height(root->left)-height(root->right))<=1){
+
+        bool left=isBalancedBT(root->left);
+        bool right=isBalancedBT(root->right);
+
+        return left && right;
+    }
+
+    return false;
 }

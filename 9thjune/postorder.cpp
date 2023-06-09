@@ -11,22 +11,23 @@
         TreeNode(int x, TreeNode *left, TreeNode *right) : data(x), left(left), right(right) {}
     };
 */
-void inorder(vector<int> &ans,TreeNode *root){
+void postorder(TreeNode *root,vector<int> &ans){
+
     if(!root)
         return;
    
-ans.push_back(root->data);
-        inorder(ans,root->left);
-        
-        inorder(ans,root->right);
-
+    postorder(root->left,ans);
+    
+    postorder(root->right,ans);
+     ans.push_back(root->data);
+    
 }
-vector<int> getPreOrderTraversal(TreeNode *root)
+vector<int> getPostOrderTraversal(TreeNode *root)
 {
     // Write your code here.
-     if(!root)
-        return {};
-    vector<int> ans;
-    inorder(ans,root);
+     vector<int> ans;
+
+    postorder(root,ans);
+
     return ans;
 }

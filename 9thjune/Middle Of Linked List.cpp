@@ -28,13 +28,14 @@ Node *findMiddle(Node *head) {
     // Write your code here
     if(!head || !head->next)
         return head;
-    Node *slow=head,*fast=head->next;
+    
+    Node *slow=head,*fast=head;
 
-    while(fast->next && fast->next->next){
-      slow=slow->next;
-      fast=fast->next->next;
+    while(fast && fast->next){
+        slow=slow->next;
+        fast=fast->next->next;
     }
 
-    return slow->next;
+    return slow;
 }
 

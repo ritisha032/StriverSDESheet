@@ -22,7 +22,7 @@
 LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head) 
 {
     // Write your code here
-    if(!head || !head->next )
+    if(!head || !head->next)
         return head;
 
     LinkedListNode<int> *t=reverseLinkedList(head->next);
@@ -30,5 +30,4 @@ LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head)
     head->next=NULL;
 
     return t;
-    
 }

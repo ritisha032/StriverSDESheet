@@ -26,8 +26,9 @@
 ***********************************************************/
 void inorder(BinaryTreeNode<int> *root,vector<int> &ans){
 
-    if(!root)
+    if(root==NULL)
         return;
+    
     inorder(root->left,ans);
     ans.push_back(root->data);
     inorder(root->right,ans);
@@ -35,11 +36,13 @@ void inorder(BinaryTreeNode<int> *root,vector<int> &ans){
 bool pairSumBst(BinaryTreeNode<int> *root, int k)
 {
     // Write your code here
+
     vector<int> ans;
 
     inorder(root,ans);
 
     int i=0,j=ans.size()-1;
+
 
     while(i<j){
 

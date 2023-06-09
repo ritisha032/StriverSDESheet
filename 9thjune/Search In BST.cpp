@@ -1,5 +1,4 @@
 #include <bits/stdc++.h> 
-using namespace std;
 /*
     Following is the Binary Tree node structure:
 
@@ -22,10 +21,12 @@ bool searchInBST(BinaryTreeNode<int> *root, int x) {
 
     if(!root)
         return false;
-    if(x < root->data)
-        return searchInBST(root->left,x);
-    else if(x > root->data )
-        return searchInBST(root->right,x);
-    else
+    if(root->data == x)
         return true;
+    
+    if(x<root->data)
+        return searchInBST(root->left,x);
+    else if(x>root->data)
+        return searchInBST(root->right,x);
+        
 }
